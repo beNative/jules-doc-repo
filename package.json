@@ -1,0 +1,50 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This document provides a detailed explanation of the SQLite database schema designed for an application that visually organizes documents in a treeview structure. The schema is designed to be scalable, high-performance, and extensible, supporting features like document versioning, hierarchical organization, and full-text search.",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build:css": "./node_modules/tailwindcss/lib/cli.js -i ./src/renderer/index.css -o ./dist/renderer/index.css --minify",
+    "build:js": "node build.mjs",
+    "start": "npm run build:js && npm run build:css && electron .",
+    "build": "NODE_ENV=production npm run build:js && npm run build:css && electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beNative/jules-doc-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beNative/jules-doc-repo/issues"
+  },
+  "homepage": "https://github.com/beNative/jules-doc-repo#readme",
+  "build": {
+    "appId": "com.example.electron-app",
+    "productName": "My Electron App",
+    "files": [
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "electron": "^39.1.2",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.27.0",
+    "esbuild-plugin-copy": "^2.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
